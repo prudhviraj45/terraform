@@ -1,0 +1,19 @@
+provider "aws" {
+
+    region = "ap-south-1"
+    access_key = "AKIAQTRS3MZZPQWIOWH5"
+    secret_key = "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"
+}
+
+resource "aws_db_instance" "default" {
+  allocated_storage    = 5
+  db_name              = "mydb"
+  engine               = "mysql"
+  engine_version       = "5.7"
+  instance_class       = "db.t3.micro"
+  username             = "sample"
+  password             = "^[a-zA-Z0-9]*$"
+  db_subnet_group_name = "nani"
+  parameter_group_name = "default.mysql5.7"
+  skip_final_snapshot  = true
+}
